@@ -1,14 +1,14 @@
-package com.zh.activemqdemo.queue;
+package com.zh.activemqdemo.topic;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 import javax.jms.*;
 
-public class JmsProduce {
+public class JmsProduceTopic {
     public static final String ACTIVEMQ_URL = "tcp://39.106.85.90:61616";
     public static final String ACTIVEMQ_USERNAME = "admin";
     public static final String ACTIVEMQ_PASSWORD = "admin";
-    public static final String ACTIVEMQ_NAME = "queue01";
+    public static final String TOPIC_NAME = "topic01";
 
     public static void main(String[] args) throws Exception{
         //1.创建连接工厂，按照给定的URL地址，采用默认的用户名个密码
@@ -22,15 +22,15 @@ public class JmsProduce {
         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 
         //4.创建目的地（具体是队列还是主题）
-        Queue queue = session.createQueue(ACTIVEMQ_NAME);
+        Topic topic = session.createTopic(TOPIC_NAME);
 
         //5.创建消息的生产者
-        MessageProducer messageProducer = session.createProducer(queue);
+        MessageProducer messageProducer = session.createProducer(topic);
 
         //6.通过使用MessageProducer生产3条消息发送到MQ的队列中
         for (int i = 0; i < 3; i++){
             //7.创建消息
-            TextMessage textMessage = session.createTextMessage("msg----" + i);
+            TextMessage textMessage = session.createTextMessage("TOPIC_NAME----" + i);
             //8.通过MessageProducer发送到MQ
             messageProducer.send(textMessage);
         }
@@ -39,6 +39,6 @@ public class JmsProduce {
         session.close();
         connection.close();
 
-        System.out.println("****消息已发送到MQ");
+        System.out.println("****TOPIC_NAME消息已发送到MQ");
     }
 }

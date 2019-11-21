@@ -4,11 +4,11 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 
 import javax.jms.*;
 
-public class JmsConsumer {
+public class JmsConsumerQueue {
     public static final String ACTIVEMQ_URL = "tcp://39.106.85.90:61616";
     public static final String ACTIVEMQ_USERNAME = "admin";
     public static final String ACTIVEMQ_PASSWORD = "admin";
-    public static final String ACTIVEMQ_NAME = "queue01";
+    public static final String QUEUE_NAME = "queue01";
 
 
     public static void main(String[] args) throws Exception{
@@ -23,7 +23,7 @@ public class JmsConsumer {
         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 
         //4.创建目的地（具体是队列还是主题）
-        Queue queue = session.createQueue(ACTIVEMQ_NAME);
+        Queue queue = session.createQueue(QUEUE_NAME);
 
         //5.创建消息的消费者
         MessageConsumer messageConsumer = session.createConsumer(queue);

@@ -5,10 +5,10 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 import javax.jms.*;
 
 public class JmsProduce {
-    public static final String ACTIVEMQ_URL = "tcp://172.17.152.135:61616";
+    public static final String ACTIVEMQ_URL = "tcp://39.106.85.90:61616";
     public static final String ACTIVEMQ_USERNAME = "admin";
     public static final String ACTIVEMQ_PASSWORD = "admin";
-    public static final String ACTIVEMQ_NAME = "myActiveMQ";
+    public static final String ACTIVEMQ_NAME = "queue01";
 
     public static void main(String[] args) throws Exception{
         //1.创建连接工厂，按照给定的URL地址，采用默认的用户名个密码

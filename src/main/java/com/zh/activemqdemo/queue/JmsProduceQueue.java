@@ -26,6 +26,8 @@ public class JmsProduceQueue {
 
         //5.创建消息的生产者
         MessageProducer messageProducer = session.createProducer(queue);
+        //将设置消息持久化，队列的默认传送模式是持久化模式（可靠，不会丢失）
+        messageProducer.setDeliveryMode(DeliveryMode.PERSISTENT);
 
         //6.通过使用MessageProducer生产3条消息发送到MQ的队列中
         for (int i = 0; i < 3; i++){

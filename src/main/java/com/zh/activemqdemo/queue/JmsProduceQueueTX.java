@@ -19,7 +19,7 @@ public class JmsProduceQueueTX {
         connection.start();
 
         //3.创建会话session,第一个参数是事物，第二个参数是签收
-        Session session = connection.createSession(true, Session.AUTO_ACKNOWLEDGE);
+        Session session = connection.createSession(true, Session.CLIENT_ACKNOWLEDGE);
 
         //4.创建目的地（具体是队列还是主题）
         Queue queue = session.createQueue(QUEUE_NAME);

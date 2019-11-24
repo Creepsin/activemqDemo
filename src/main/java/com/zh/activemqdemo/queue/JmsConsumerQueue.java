@@ -5,7 +5,8 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 import javax.jms.*;
 
 public class JmsConsumerQueue {
-    public static final String ACTIVEMQ_URL = "tcp://39.106.85.90:61616";
+    //public static final String ACTIVEMQ_URL = "tcp://39.106.85.90:61616";
+    public static final String ACTIVEMQ_URL = "tcp://localhost:61616";
     public static final String ACTIVEMQ_USERNAME = "admin";
     public static final String ACTIVEMQ_PASSWORD = "admin";
     public static final String QUEUE_NAME = "queue01";

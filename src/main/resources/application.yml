@@ -1,0 +1,13 @@
+server:
+  port: 7777
+
+spring:
+  activemq:
+    broker-url: tcp://39.106.85.90:61616 #自己的服务器地址
+    user: admin
+    password: admin
+  jms:
+    pub-sub-domain: false   #false就代表使用的队列queue  true就是使用主题topic 默认为false
+
+#自己定义队列的名称
+myqueue: boot-activemq-queue
